@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Loader from '../components/Loader/Loader';
-import Map from '../components/Map/Map';
+import LeafletMap from '../components/Map/Map';
 
 const PostcardService = () => {
   const [postcards, setPostcards] = useState(null);
@@ -23,7 +23,7 @@ const PostcardService = () => {
   if (!postcards) {
     return <Loader/>
   }
-  return <Map dataFromParent={postcards}/>
+  return <LeafletMap dataFromParent={postcards}/>
 }
 
 export default PostcardService;

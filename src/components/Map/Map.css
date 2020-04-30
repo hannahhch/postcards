@@ -1,3 +1,13 @@
-.card {
-  border: solid 1px black;
+.map {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 400px;
+  width: 400px;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
 }

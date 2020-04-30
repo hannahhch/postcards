@@ -1,18 +1,39 @@
 import React from 'react';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 import './Map.css'
 
-const Map = (props) => {
-  return props.dataFromParent.map(data => {
+const LeafletMap = (props) =>{
+
+  const position = { lon: -104.991531, lat: 39.742043 }
+
+  let markers = props.dataFromParent.map(data => {
     return (
-      <div key={data._id} id={data._id} className='card'>
-        <h1>{data.sender}</h1>
-        <div>{data.location}</div>
-        <div>{data.city} {data.state} {data.country}</div>
-        <div>{data.year}</div>
+      <div key={data._id}>
+        <Marker position={position}>
+          <Popup>
+            <div>{data.sender}</div>
+            <div>{data.location}</div>
+            <div>{data.city} {data.state} {data.country}</div>
+            <div>{data.year}</div>
+          </Popup>
+        </Marker>
       </div>
     )
-  })
-}
+  });
+  
+  return (
+    <div className="map">
+      <Map center={position} zoom={13}>
+        <TileLayer
+          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
 
-export default Map;
+        {markers}
+      </Map>
+    </div>
+  )
+};
+
+export default LeafletMap;
 
