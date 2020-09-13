@@ -25,7 +25,7 @@ const LeafletMap = (props) => {
       <Map center={position} zoom={2}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="http://a.tile.stamen.com/toner/{z}/{x}/{y}.png"
+          url="	https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
           // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {markers}
